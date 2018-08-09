@@ -73,7 +73,7 @@ class RetroResult<T>(val response: Response<T>? = null, throwable: Throwable?) :
 
     fun showErrorAsToast(context: Context) {
         var message = message
-        if (errorType == ResponseErrorType.BadRequestError)
+        if (errorType == ResponseErrorType.BadRequestError && errors.size > 0)
             message = errors.toSeparateRows()
 
         context.toast(message)

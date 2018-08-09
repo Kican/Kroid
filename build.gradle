@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.2.60'
 
     // kroid
-    ext.KROID_VERSION = '0.0.1'
+    ext.KROID_VERSION = '0.0.1-beta-01'
     ext.KROID_VERSION_CODE = 1
 
     ext.COMPILE_SDK_VERSION = 28
@@ -15,13 +15,15 @@ buildscript {
     ext.SUPPORT_ARTIFACT_VERSION = "27.1.1"
     ext.CONSTRAINT_LAYOUT_ARTIFACT_VERSION = "1.1.2"
 
-
     // retrofit 2
     ext.retrofit2_version = "2.4.0"
 
     // rxJava 2
     ext.rxJava2_version = "2.1.17"
     ext.rxAndroid_version = "2.0.2"
+
+    // gson
+    ext.gson_version = "2.8.5"
 
 
     repositories {
