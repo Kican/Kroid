@@ -71,4 +71,7 @@ object Utils {
             return@forEach
         }
     }
+
+    const val NO_GETTER: String = "Property does not have a getter"
+    fun noGetter(): Nothing = throw KroidException("Property does not have a getter")
 }
