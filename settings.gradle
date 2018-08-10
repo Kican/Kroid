@@ -1,2 +1,3 @@
-include ':libs:commons'
+include ':libs:commons', ':libs:commons-support-v4'
+include ':libs:design'
 include ':libs:http'

@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
@@ -24,23 +22,14 @@ android {
 }
 
 dependencies {
+     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // support
-    implementation "com.android.support:support-annotations:$SUPPORT_ARTIFACT_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_ARTIFACT_VERSION"
 
-    // json
-    implementation "com.google.code.gson:gson:$gson_version"
-
-    // rx
-    implementation "io.reactivex.rxjava2:rxjava:$rxJava2_version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid_version"
-
-    // tests
+    // test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
-repositories {
-    mavenCentral()
 }
