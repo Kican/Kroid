@@ -5,6 +5,9 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * create an instance of retrofit interface for direct call
+ */
 class HttpClient {
     companion object {
         inline fun <reified T> build(basePath: String = ""): T {
