@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.2.60'
 
     // kroid
-    ext.KROID_VERSION = '0.0.1-beta-01'
+    ext.KROID_VERSION = '0.0.1'
     ext.KROID_VERSION_CODE = 1
 
     ext.COMPILE_SDK_VERSION = 28
@@ -26,6 +26,20 @@ buildscript {
     ext.gson_version = "2.8.5"
 
 
+
+    ext.PROJECT_URL = 'https://github.com/mo3in/kroid'
+    ext.SCM_URL = 'https://github.com/mo3in/kroid.git'
+    ext.CONNECTION_URL = 'scm:git:https://github.com/mo3in/kroid.git'
+    ext.DEVELOPER_CONNECTION_URL = 'scm:git:https://github.com/mo3in/kroid'
+
+
+
+    ext.BINTRAY_USER_NAME = 'mo3in'
+    ext.BINTRAY_PACKAGE_NAME = 'kroid'
+    ext.BINTRAY_REPO_NAME = 'kroid'
+
+    ext.BINTRAY_DRY_RUN = false
+
     ext.POM_ARTIFACT_GROUP = 'me.mo3in.kroid'
 
 
@@ -36,6 +50,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
