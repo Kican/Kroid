@@ -1,8 +1,9 @@
-package me.mo3in.kroid.http.extentions
+package me.mo3in.kroid.http.rx.extentions
 
 import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
+import me.mo3in.kroid.http.HttpClient
 import me.mo3in.kroid.http.models.RetroResult
+import me.mo3in.kroid.http.rx.buildRx
 import retrofit2.HttpException
 import retrofit2.Response
 
