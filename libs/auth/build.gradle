@@ -1,0 +1,6 @@
+apply from: '../library.gradle'
+
+
+dependencies {
+    api project(':libs:http-rx')
+}
