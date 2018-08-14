@@ -1,4 +1,4 @@
-package me.mo3in.kroid.commons.support.v4.extentions
+package me.mo3in.kroid.commons.support.v4.extensions
 
 import android.content.SharedPreferences
 import android.preference.PreferenceManager

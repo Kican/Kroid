@@ -1,7 +1,7 @@
-package me.mo3in.kroid.commons.support.v4.extentions
+package me.mo3in.kroid.commons.support.v4.extensions
 
 import android.support.v4.app.Fragment
-import me.mo3in.kroid.commons.extentions.*
+import me.mo3in.kroid.commons.extensions.*
 
 fun Fragment.dip(value: Int): Int = requireActivity().dip(value)
 fun Fragment.dip(value: Float): Int = requireActivity().dip(value)

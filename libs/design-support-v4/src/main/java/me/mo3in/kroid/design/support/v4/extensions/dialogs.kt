@@ -1,10 +1,10 @@
-package me.mo3in.kroid.design.support.v4.extentions
+package me.mo3in.kroid.design.support.v4.extensions
 
 import android.content.DialogInterface
 import android.support.v4.app.Fragment
 import me.mo3in.kroid.design.dialogs.AlertBuilder
-import me.mo3in.kroid.design.extentions.alert
-import me.mo3in.kroid.design.extentions.selector
+import me.mo3in.kroid.design.extensions.alert
+import me.mo3in.kroid.design.extensions.selector
 
 
 inline fun Fragment.selector(

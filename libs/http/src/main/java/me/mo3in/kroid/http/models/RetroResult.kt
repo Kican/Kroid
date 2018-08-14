@@ -2,8 +2,8 @@ package me.mo3in.kroid.http.models
 
 import android.content.Context
 import com.google.gson.Gson
-import me.mo3in.kroid.commons.extentions.fromJson
-import me.mo3in.kroid.commons.extentions.toast
+import me.mo3in.kroid.commons.extensions.fromJson
+import me.mo3in.kroid.commons.extensions.toast
 import me.mo3in.kroid.commons.models.DataResult
 import me.mo3in.kroid.commons.models.ResultErrors
 import retrofit2.Response

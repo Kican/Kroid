@@ -9,7 +9,7 @@ import android.view.View
 import me.mo3in.kroid.commons.Utils
 import me.mo3in.kroid.commons.Utils.NO_GETTER
 import me.mo3in.kroid.commons.Utils.noGetter
-import me.mo3in.kroid.design.extentions.AlertBuilderFactory
+import me.mo3in.kroid.design.extensions.AlertBuilderFactory
 import kotlin.DeprecationLevel.ERROR
 
 val Android: AlertBuilderFactory<AlertDialog> = ::AndroidAlertBuilder

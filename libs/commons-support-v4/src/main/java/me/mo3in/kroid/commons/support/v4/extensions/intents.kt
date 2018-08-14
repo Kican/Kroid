@@ -1,11 +1,11 @@
-package me.mo3in.kroid.commons.support.v4.extentions
+package me.mo3in.kroid.commons.support.v4.extensions
 
 import android.app.Activity
 import android.app.Service
 import android.content.Intent
 import android.support.v4.app.Fragment
 import me.mo3in.kroid.commons.Utils
-import me.mo3in.kroid.commons.extentions.*
+import me.mo3in.kroid.commons.extensions.*
 
 
 fun Fragment.browse(url: String, newTask: Boolean = false): Boolean = requireActivity().browse(url, newTask)

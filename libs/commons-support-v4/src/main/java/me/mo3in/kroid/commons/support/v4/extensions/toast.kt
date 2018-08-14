@@ -1,8 +1,8 @@
-package me.mo3in.kroid.commons.support.v4.extentions
+package me.mo3in.kroid.commons.support.v4.extensions
 
 import android.support.v4.app.Fragment
-import me.mo3in.kroid.commons.extentions.longToast
-import me.mo3in.kroid.commons.extentions.toast
+import me.mo3in.kroid.commons.extensions.longToast
+import me.mo3in.kroid.commons.extensions.toast
 
 inline fun Fragment.toast(textResource: Int) = requireActivity().toast(textResource)
 

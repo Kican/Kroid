@@ -1,4 +1,4 @@
-package me.mo3in.kroid.commons.extentions
+package me.mo3in.kroid.commons.extensions
 
 import android.content.Context
 import android.os.Handler
@@ -13,7 +13,7 @@ private object ContextHelper {
     val handler = Handler(Looper.getMainLooper())
 }
 
-class AnkoAsyncContext<T>(val weakRef: WeakReference<T>)
+class KroidAsyncContext<T>(val weakRef: WeakReference<T>)
 
 private val crashLogger = { throwable: Throwable -> throwable.printStackTrace() }
 
@@ -34,9 +34,9 @@ fun Context.runOnUiThread(f: Context.() -> Unit) {
 
 fun <T> T.doAsync(
         exceptionHandler: ((Throwable) -> Unit)? = crashLogger,
-        task: AnkoAsyncContext<T>.() -> Unit
+        task: KroidAsyncContext<T>.() -> Unit
 ): Future<Unit> {
-    val context = AnkoAsyncContext(WeakReference(this))
+    val context = KroidAsyncContext(WeakReference(this))
     return BackgroundExecutor.submit {
         return@submit try {
             context.task()
@@ -54,9 +54,9 @@ fun <T> T.doAsync(
 fun <T> T.doAsync(
         exceptionHandler: ((Throwable) -> Unit)? = crashLogger,
         executorService: ExecutorService,
-        task: AnkoAsyncContext<T>.() -> Unit
+        task: KroidAsyncContext<T>.() -> Unit
 ): Future<Unit> {
-    val context = AnkoAsyncContext(WeakReference(this))
+    val context = KroidAsyncContext(WeakReference(this))
     return executorService.submit<Unit> {
         try {
             context.task()
@@ -68,9 +68,9 @@ fun <T> T.doAsync(
 
 fun <T, R> T.doAsyncResult(
         exceptionHandler: ((Throwable) -> Unit)? = crashLogger,
-        task: AnkoAsyncContext<T>.() -> R
+        task: KroidAsyncContext<T>.() -> R
 ): Future<R> {
-    val context = AnkoAsyncContext(WeakReference(this))
+    val context = KroidAsyncContext(WeakReference(this))
     return BackgroundExecutor.submit {
         try {
             context.task()
@@ -84,9 +84,9 @@ fun <T, R> T.doAsyncResult(
 fun <T, R> T.doAsyncResult(
         exceptionHandler: ((Throwable) -> Unit)? = crashLogger,
         executorService: ExecutorService,
-        task: AnkoAsyncContext<T>.() -> R
+        task: KroidAsyncContext<T>.() -> R
 ): Future<R> {
-    val context = AnkoAsyncContext(WeakReference(this))
+    val context = KroidAsyncContext(WeakReference(this))
     return executorService.submit<R> {
         try {
             context.task()

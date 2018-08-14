@@ -1,4 +1,4 @@
-package me.mo3in.kroid.commons.extentions
+package me.mo3in.kroid.commons.extensions
 
 import android.app.Activity
 import android.app.Dialog

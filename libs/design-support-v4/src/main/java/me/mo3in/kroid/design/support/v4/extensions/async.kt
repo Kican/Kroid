@@ -1,4 +1,4 @@
-package me.mo3in.kroid.design.support.v4.extentions
+package me.mo3in.kroid.design.support.v4.extensions
 
 import android.support.v4.app.Fragment
 

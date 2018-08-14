@@ -1,4 +1,4 @@
-package me.mo3in.kroid.design.extentions
+package me.mo3in.kroid.design.extensions
 
 import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar
