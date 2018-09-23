@@ -1,6 +1,6 @@
-package me.mo3in.kroid.commons.support.v4.extensions
+package me.mo3in.kroid.commons.androidx.extensions
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import me.mo3in.kroid.commons.extensions.longToast
 import me.mo3in.kroid.commons.extensions.toast
 

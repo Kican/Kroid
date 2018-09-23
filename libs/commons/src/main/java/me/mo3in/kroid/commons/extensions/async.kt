@@ -18,8 +18,7 @@ class KroidAsyncContext<T>(val weakRef: WeakReference<T>)
 private val crashLogger = { throwable: Throwable -> throwable.printStackTrace() }
 
 internal object BackgroundExecutor {
-    var executor: ExecutorService =
-            Executors.newScheduledThreadPool(2 * Runtime.getRuntime().availableProcessors())
+    var executor = Executors.newScheduledThreadPool(2 * Runtime.getRuntime().availableProcessors())
 
     fun <T> submit(task: () -> T): Future<T> = executor.submit(task)
 

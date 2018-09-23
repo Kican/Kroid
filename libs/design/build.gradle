@@ -2,7 +2,7 @@ apply from: '../library.gradle'
 
 dependencies {
     // support
-    api "com.android.support:design:$SUPPORT_ARTIFACT_VERSION"
+//    api "com.android.support:design:$SUPPORT_ARTIFACT_VERSION"
 
     // commons project
     api project(':libs:commons')
