@@ -68,7 +68,7 @@ publishing {
                         developer {
                             id 'mo3in'
                             name 'Mo3in'
-                            email 'mo3in.hente@gmail.com'
+                            email 'moein.hente@gmail.com'
                             site 'https://mo3in.me'
                         }
                     }

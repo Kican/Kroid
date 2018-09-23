@@ -10,9 +10,9 @@ object KroidAuth {
         return false
     }
 
-    fun <T> getUserInfo(): Observable<T> {
-        return Observable.just(T)
-    }
+//    fun <T> getUserInfo(): Observable<T> {
+////        return Observable.just(T)
+//    }
 
     fun <T : BaseUserRegisterModel> createUser(model: T) {
 

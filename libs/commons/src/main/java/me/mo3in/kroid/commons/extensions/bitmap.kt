@@ -8,14 +8,11 @@ import java.io.ByteArrayInputStream
 
 
 fun Bitmap.toBase64(): String {
-
-    var base64Bitmap: String? = null
-
     val stream = ByteArrayOutputStream()
     compress(Bitmap.CompressFormat.PNG, 100, stream)
 
     val imageBitmap = stream.toByteArray()
-    base64Bitmap = Base64.encodeToString(imageBitmap, Base64.DEFAULT)
+    val base64Bitmap = Base64.encodeToString(imageBitmap, Base64.DEFAULT)
 
     return base64Bitmap
 }
