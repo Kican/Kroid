@@ -1,4 +1,4 @@
-package me.mo3in.kroid.rx.extensions
+package me.mo3in.kroid.commons.extensions
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -7,4 +7,8 @@ dependencies {
 
     // json
     api "com.google.code.gson:gson:$gson_version"
+
+    // rx
+    api "io.reactivex.rxjava2:rxjava:$rxJava2_version"
+    api "io.reactivex.rxjava2:rxandroid:$rxAndroid_version"
 }

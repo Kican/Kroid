@@ -1,5 +1,4 @@
 include ':libs:commons', ':libs:commons-support-v4'
-include ':libs:rx'
 include ':libs:design', ':libs:design-support-v4'
-include ':libs:http', ':libs:http-rx'
+include ':libs:http'
 include ':libs:auth'

@@ -1,4 +1,4 @@
-package me.mo3in.kroid.http.rx.extensions
+package me.mo3in.kroid.http.extensions
 
 import io.reactivex.Observable
 import me.mo3in.kroid.http.models.RetroResult

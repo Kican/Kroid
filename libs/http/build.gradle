@@ -5,6 +5,8 @@ dependencies {
     // retrofit 2
     api "com.squareup.retrofit2:retrofit:$retrofit2_version"
     api "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+
 
     // project commons
     api project(':libs:commons')
