@@ -1,0 +1,9 @@
+apply from: '../library.gradle'
+
+dependencies {
+    // support
+    api "com.google.android.material:material:$MATERIAL_VERSION"
+
+    // commons project
+    api project(':libs:commons')
+}
