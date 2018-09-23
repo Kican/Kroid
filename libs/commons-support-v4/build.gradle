@@ -1,9 +1,0 @@
-apply from: '../library.gradle'
-
-dependencies {
-    // support library
-    api "com.android.support:support-v4:$SUPPORT_ARTIFACT_VERSION"
-
-    // commons
-    api project(':libs:commons')
-}

@@ -6,9 +6,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.preference.PreferenceManager
-import android.support.annotation.IdRes
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 
 
 // default shared preferences

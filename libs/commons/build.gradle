@@ -2,8 +2,10 @@ apply from: '../library.gradle'
 
 
 dependencies {
-    // support
-    api "com.android.support:support-annotations:$SUPPORT_ARTIFACT_VERSION"
+    // androidX
+    api "androidx.annotation:annotation:$ANDROIDX_VERSION"
+    api "androidx.core:core-ktx:$ANDROIDX_VERSION"
+    api "androidx.fragment:fragment-ktx:$ANDROIDX_VERSION"
 
     // json
     api "com.google.code.gson:gson:$gson_version"
