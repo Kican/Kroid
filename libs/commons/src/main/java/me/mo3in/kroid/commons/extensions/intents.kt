@@ -8,6 +8,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.Fragment
 import me.mo3in.kroid.commons.Utils
+import me.mo3in.kroid.commons.helpers.KActivity
 
 
 // start activity

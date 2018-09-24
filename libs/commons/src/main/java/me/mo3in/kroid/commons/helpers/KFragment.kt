@@ -1,12 +1,12 @@
 package me.mo3in.kroid.commons.helpers
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import io.reactivex.Single
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResult
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResultManager
 
-abstract class KActivity : AppCompatActivity() {
+abstract class KFragment : Fragment() {
     private val activityResultManager = ActivityResultManager()
 
     fun startActivityForResult(intent: Intent): Single<ActivityResult> {
