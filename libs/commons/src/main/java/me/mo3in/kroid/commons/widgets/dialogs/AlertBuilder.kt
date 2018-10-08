@@ -5,8 +5,6 @@ import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.view.KeyEvent
 import android.view.View
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 
 interface AlertBuilder<out D : DialogInterface> {
     val ctx: Context
@@ -24,7 +22,6 @@ interface AlertBuilder<out D : DialogInterface> {
 
     var icon: Drawable
 
-    @setparam:DrawableRes
     var iconResource: Int
 
     var customTitle: View
@@ -39,13 +36,13 @@ interface AlertBuilder<out D : DialogInterface> {
     fun onKeyPressed(handler: (dialog: DialogInterface, keyCode: Int, e: KeyEvent) -> Boolean)
 
     fun positiveButton(buttonText: String, onClicked: (dialog: DialogInterface) -> Unit)
-    fun positiveButton(@StringRes buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
+    fun positiveButton(buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
 
     fun negativeButton(buttonText: String, onClicked: (dialog: DialogInterface) -> Unit)
-    fun negativeButton(@StringRes buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
+    fun negativeButton( buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
 
     fun neutralPressed(buttonText: String, onClicked: (dialog: DialogInterface) -> Unit)
-    fun neutralPressed(@StringRes buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
+    fun neutralPressed(buttonTextResource: Int, onClicked: (dialog: DialogInterface) -> Unit)
 
     fun items(items: List<CharSequence>, onItemSelected: (dialog: DialogInterface, index: Int) -> Unit)
     fun <T> items(items: List<T>, onItemSelected: (dialog: DialogInterface, item: T, index: Int) -> Unit)

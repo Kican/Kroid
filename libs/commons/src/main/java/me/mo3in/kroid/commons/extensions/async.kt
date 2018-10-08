@@ -3,7 +3,6 @@ package me.mo3in.kroid.commons.extensions
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import java.lang.ref.WeakReference
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -32,9 +31,6 @@ fun Context.runOnUiThread(f: Context.() -> Unit) {
     if (Looper.getMainLooper() === Looper.myLooper()) f() else ContextHelper.handler.post { f() }
 }
 
-inline fun Fragment.runOnUiThread(crossinline f: () -> Unit) {
-    requireActivity().runOnUiThread { f() }
-}
 
 fun <T> T.doAsync(
         exceptionHandler: ((Throwable) -> Unit)? = crashLogger,

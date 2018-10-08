@@ -1,4 +1,4 @@
-include ':libs:commons'
+include ':libs:commons', ':libs:commons_androidx', ':libs:commons_support'
 include ':libs:http'
 include ':libs:auth'
 include ':libs:material'

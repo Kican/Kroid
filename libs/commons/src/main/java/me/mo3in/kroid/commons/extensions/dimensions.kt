@@ -3,8 +3,7 @@ package me.mo3in.kroid.commons.extensions
 import android.content.Context
 import android.util.DisplayMetrics
 import android.view.View
-import androidx.annotation.DimenRes
-import androidx.fragment.app.Fragment
+
 
 const val LDPI: Int = DisplayMetrics.DENSITY_LOW
 const val MDPI: Int = DisplayMetrics.DENSITY_MEDIUM
@@ -42,14 +41,3 @@ fun View.sp(value: Int): Int = context.sp(value)
 fun View.sp(value: Float): Int = context.sp(value)
 fun View.px2dip(px: Int): Float = context.px2dip(px)
 fun View.px2sp(px: Int): Float = context.px2sp(px)
-fun View.dimen(@DimenRes resource: Int): Int = context.dimen(resource)
-
-// the same for fragments
-
-fun Fragment.dip(value: Int): Int = requireActivity().dip(value)
-fun Fragment.dip(value: Float): Int = requireActivity().dip(value)
-fun Fragment.sp(value: Int): Int = requireActivity().sp(value)
-fun Fragment.sp(value: Float): Int = requireActivity().sp(value)
-fun Fragment.px2dip(px: Int): Float = requireActivity().px2dip(px)
-fun Fragment.px2sp(px: Int): Float = requireActivity().px2sp(px)
-fun Fragment.dimen(resource: Int): Int = requireActivity().dimen(resource)

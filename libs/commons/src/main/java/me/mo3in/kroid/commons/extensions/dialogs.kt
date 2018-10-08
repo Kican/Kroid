@@ -3,7 +3,6 @@ package me.mo3in.kroid.commons.extensions
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import androidx.fragment.app.Fragment
 import me.mo3in.kroid.commons.widgets.dialogs.AlertBuilder
 import me.mo3in.kroid.commons.widgets.dialogs.AndroidAlertBuilder
 
@@ -77,25 +76,3 @@ fun Context.selector(title: CharSequence? = null, items: List<CharSequence>, onC
         show()
     }
 }
-
-// for fragments
-
-fun Fragment.selector(
-        title: CharSequence? = null,
-        items: List<CharSequence>,
-        onClick: (DialogInterface, Int) -> Unit
-): Unit = requireActivity().selector(title, items, onClick)
-
-fun Fragment.alert(
-        message: String,
-        title: String? = null,
-        init: (AlertBuilder<DialogInterface>.() -> Unit)? = null
-) = requireActivity().alert(message, title, init)
-
-fun Fragment.alert(
-        message: Int,
-        title: Int? = null,
-        init: (AlertBuilder<DialogInterface>.() -> Unit)? = null
-) = requireActivity().alert(message, title, init)
-
-fun Fragment.alert(init: AlertBuilder<DialogInterface>.() -> Unit) = requireActivity().alert(init)

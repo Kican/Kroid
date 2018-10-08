@@ -1,0 +1,12 @@
+apply from: '../library.gradle'
+
+dependencies {
+    // androidX
+    api "androidx.annotation:annotation:$ANDROIDX_VERSION"
+    api "androidx.core:core-ktx:$ANDROIDX_VERSION"
+    api "androidx.fragment:fragment-ktx:$ANDROIDX_VERSION"
+    api "androidx.appcompat:appcompat:$ANDROIDX_VERSION"
+
+    // commons project
+    api project(':libs:commons')
+}

@@ -8,7 +8,6 @@ import android.content.res.Configuration
 import android.preference.PreferenceManager
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
 
 
 // default shared preferences
@@ -22,15 +21,15 @@ inline val Activity.contentView: View?
 
 //returns view if find, exception otherwise.
 
-inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id)
-inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById(id)
-inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById(id)
+inline fun <reified T : View> View.find(id: Int): T = findViewById(id)
+inline fun <reified T : View> Activity.find(id: Int): T = findViewById(id)
+inline fun <reified T : View> Dialog.find(id: Int): T = findViewById(id)
 
 // returns view if find, null otherwise.
 
-inline fun <reified T : View> View.findOptional(@IdRes id: Int): T? = findViewById(id) as? T
-inline fun <reified T : View> Activity.findOptional(@IdRes id: Int): T? = findViewById(id) as? T
-inline fun <reified T : View> Dialog.findOptional(@IdRes id: Int): T? = findViewById(id) as? T
+inline fun <reified T : View> View.findOptional(id: Int): T? = findViewById(id) as? T
+inline fun <reified T : View> Activity.findOptional(id: Int): T? = findViewById(id) as? T
+inline fun <reified T : View> Dialog.findOptional(id: Int): T? = findViewById(id) as? T
 
 
 inline val Context.displayMetrics: android.util.DisplayMetrics
