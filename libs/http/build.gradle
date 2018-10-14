@@ -10,4 +10,6 @@ dependencies {
 
     // project commons
     api project(':libs:commons')
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_mockwebserver"
 }

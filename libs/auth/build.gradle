@@ -3,4 +3,6 @@ apply from: '../library.gradle'
 
 dependencies {
     api project(':libs:http')
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_mockwebserver"
 }
