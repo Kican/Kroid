@@ -8,11 +8,11 @@ import retrofit2.Response
 fun <T> Call<T>.runAsync(result: (RetroResult<T>) -> Unit) {
     this.enqueue(object : Callback<T> {
         override fun onResponse(call: Call<T>?, response: Response<T>) {
-            result(RetroResult.fromData(response))
+            result.invoke(RetroResult.fromData(response))
         }
 
         override fun onFailure(call: Call<T>?, t: Throwable) {
-            result(RetroResult.fromError(t))
+            result.invoke(RetroResult.fromError(t))
         }
     })
 }

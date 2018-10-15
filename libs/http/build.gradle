@@ -1,4 +1,5 @@
 apply from: '../library.gradle'
+apply from: '../testAndroidX.gradle'
 
 
 dependencies {
