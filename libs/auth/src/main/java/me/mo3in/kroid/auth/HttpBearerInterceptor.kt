@@ -7,6 +7,7 @@ import okhttp3.Response
 class HttpBearerInterceptor(val context: Context) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val token = KroidAuth(context).getToken()
+
         val newRequest = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $token")
                 .build()

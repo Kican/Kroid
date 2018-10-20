@@ -124,12 +124,12 @@ class FootballViewHolder(itemView: View) : KRecyclerAdapter.ItemViewHolder<FootB
     }
 }
 
-
-class Test {
-    init {
-        KRecyclerAdapter<FootBall>(KRecyclerAdapter.AdapterItem(FootBall::class.java, FootballViewHolder::class.java))
-    }
-}
+//
+//class Test {
+//    init {
+//        KRecyclerAdapter<FootBall>(KRecyclerAdapter.AdapterItem(FootBall::class.java, FootballViewHolder::class.java))
+//    }
+//}
 
 class FootballAdapterItem : KRecyclerAdapter.AdapterItemHolder(FootBall::class.java, FootballViewHolder::class.java) {
 

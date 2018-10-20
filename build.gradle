@@ -4,7 +4,7 @@ buildscript {
     ext.kotlin_version = '1.3.0-rc-190'
 
     // kroid
-    ext.KROID_VERSION = '0.0.5'
+    ext.KROID_VERSION = '0.1.0'
     ext.KROID_VERSION_CODE = 2
 
     ext.COMPILE_SDK_VERSION = 28

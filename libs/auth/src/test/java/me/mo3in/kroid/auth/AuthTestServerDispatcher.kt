@@ -18,10 +18,20 @@ class AuthTestServerDispatcher : Dispatcher() {
                         .setBody(TokenResponse("abc.efg.hic", "Bearer", "abvcasd", 4500).toJson())
             }
             "/api/data/list" -> {
-                val header = request.getHeader("Authentication")
-                MockResponse().setResponseCode(200)
+
+                val header = request.headers.get("Authorization")
+                        ?: return MockResponse().setResponseCode(401)
+
+                if (header.removePrefix("Bearer ").split(".").size != 3)
+                    return MockResponse().setResponseCode(401)
+
+                MockResponse().setResponseCode(200).setBody(
+                        arrayOf(Data(1, "hi"), Data(2, "salam")).toJson()
+                )
             }
             else -> MockResponse().setResponseCode(404)
         }
     }
 }
+
+data class Data(val id: Int, val title: String)

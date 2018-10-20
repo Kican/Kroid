@@ -1,6 +1,5 @@
 package me.mo3in.kroid.auth
 
-import android.security.NetworkSecurityPolicy
 import android.support.test.runner.AndroidJUnit4
 import me.mo3in.kroid.auth.providers.phone.PhoneAuthProvider
 import me.mo3in.kroid.commons.services.KServiceConfig
@@ -13,12 +12,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
-import org.robolectric.annotation.Implementation
-import org.robolectric.annotation.Implements
 import org.robolectric.shadows.ShadowLooper
-import java.util.concurrent.CountDownLatch
 import java.util.concurrent.atomic.AtomicReference
-import android.annotation.SuppressLint
 
 
 @RunWith(AndroidJUnit4::class)
