@@ -24,5 +24,4 @@ class AuthTestServerDispatcher : Dispatcher() {
             else -> MockResponse().setResponseCode(404)
         }
     }
-
 }

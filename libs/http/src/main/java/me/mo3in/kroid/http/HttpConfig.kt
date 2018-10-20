@@ -11,3 +11,7 @@ fun KServiceConfig.setHttpEndPoint(url: String): KServiceConfig {
 
 val KServiceConfig.httpEndPoint: String
     get() = config[HTTP_END_POINT] as String
+
+//fun KServiceConfig.setHttpClient(builder: (builder: Retrofit.Builder) -> Retrofit.Builder) {
+//
+//}
