@@ -24,8 +24,8 @@ class AuthConfig(
                 "api/Account/Register",
                 "api/Account/Info",
                 "api/Account/Edit",
-                "api/Account/RequestToTp",
-                "api/Account/LoginToTp"
+                "api/Account/PhoneRequest",
+                "api/account/LoginOtp"
         )
     }
 
