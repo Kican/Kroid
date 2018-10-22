@@ -1,11 +1,10 @@
 apply from: '../library.gradle'
+apply from: '../testAndroidX.gradle'
 
 dependencies {
     // androidX
-    api "androidx.annotation:annotation:$ANDROIDX_VERSION"
-    api "androidx.core:core-ktx:$ANDROIDX_VERSION"
-    api "androidx.fragment:fragment-ktx:$ANDROIDX_VERSION"
     api "androidx.appcompat:appcompat:$ANDROIDX_VERSION"
+    api "androidx.lifecycle:lifecycle-extensions:$ANDROIDX_LIFECYCLE_VERSION"
 
     // commons project
     api project(':libs:commons')

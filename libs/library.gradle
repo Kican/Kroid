@@ -33,7 +33,10 @@ android {
         abortOnError false
     }
     testOptions {
-        unitTests.returnDefaultValues = true
+        unitTests{
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
     }
 }
 
@@ -79,7 +82,7 @@ publishing {
                             id 'mo3in'
                             name 'Mo3in'
                             email 'moein.hente@gmail.com'
-                            site 'https://mo3in.me'
+//                            site 'https://mo3in.me'
                         }
                     }
                 }
