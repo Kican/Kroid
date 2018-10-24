@@ -3,6 +3,7 @@ package me.mo3in.kroid.commons.androidx
 import android.app.Activity
 import android.app.Application
 import android.content.Intent
+import android.provider.MediaStore
 import androidx.test.runner.AndroidJUnit4
 import io.reactivex.Single
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResult
@@ -13,7 +14,6 @@ import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.Shadows
 import org.robolectric.annotation.Config
-import java.util.concurrent.atomic.AtomicReference
 
 
 @RunWith(AndroidJUnit4::class)
@@ -24,31 +24,38 @@ class ActivityResultTests {
     fun onActivityResult() {
         val activity = Robolectric.setupActivity(TestActivity::class.java)
 
-        val responseRef = AtomicReference<ActivityResult?>(null)
 
-        activity.getResult().subscribe { t: ActivityResult? ->
-            responseRef.set(t)
+        activity.captureImage().subscribe { t: ActivityResult? ->
+            Assert.assertTrue(t!!.isOk() && t.data!!.getStringExtra("title") == "salam")
         }
 
         Shadows.shadowOf(activity).receiveResult(
-                Intent(activity, TestResultActivity::class.java),
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE),
                 Activity.RESULT_OK,
                 Intent().putExtra("title", "salam")
         )
 
-        val result = responseRef.get()!!
-        Assert.assertTrue(result.isOk() && result.data!!.getStringExtra("title") == "salam")
+        activity.captureVideo().subscribe { t: ActivityResult? ->
+            Assert.assertTrue(t!!.isOk() && t.data!!.getStringExtra("title") == "salam2")
+        }
+
+        Shadows.shadowOf(activity).receiveResult(
+                Intent(MediaStore.ACTION_VIDEO_CAPTURE),
+                Activity.RESULT_OK,
+                Intent().putExtra("title", "salam2")
+        )
+
     }
 }
 
 class TestActivity : KActivity() {
-
-    fun getResult(): Single<ActivityResult> {
-        return startActivityForResult(Intent(this, TestResultActivity::class.java))
+    fun captureImage(): Single<ActivityResult> {
+        return startActivityForResult(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
     }
-}
 
-class TestResultActivity : Activity() {
+    fun captureVideo(): Single<ActivityResult> {
+        return startActivityForResult(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
+    }
 }
 
 class TestApplication : Application() {

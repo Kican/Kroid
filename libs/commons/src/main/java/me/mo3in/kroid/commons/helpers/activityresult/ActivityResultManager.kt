@@ -27,3 +27,20 @@ class ActivityResultManager {
 //        return activityResult.filter { x -> x.first == requestId }.map { x -> x.second }.firstOrError()
 //    }
 }
+
+class ActivityPermissionManager {
+    val permissionsRequests = PublishSubject.create<Pair<Int, RequestPermissionsResult>>()
+    private val seed = AtomicInteger(1)
+
+//    fun request(act: Activity, intent: Intent): Single<Boolean> {
+//        val requestId = seed.getAndIncrement()
+//
+//        act.startActivityForResult(intent, requestId)
+//
+//        return activityResult.filter { x -> x.first == requestId }.map { x -> x.second }.firstOrError()
+//    }
+}
+
+data class RequestPermissionsResult(val permissions: Array<Pair<String, Boolean>>) {
+    fun isAllGranted(): Boolean = permissions.all { x -> x.second }
+}
