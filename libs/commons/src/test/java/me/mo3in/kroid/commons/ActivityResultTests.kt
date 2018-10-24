@@ -1,4 +1,4 @@
-package me.mo3in.kroid.commons.androidx
+package me.mo3in.kroid.commons
 
 import android.app.Activity
 import android.app.Application

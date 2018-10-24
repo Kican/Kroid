@@ -1,14 +1,11 @@
-package me.mo3in.kroid.commons.androidx
+package me.mo3in.kroid.commons
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import io.reactivex.Single
 import me.mo3in.kroid.commons.helpers.KActivityRules
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResult
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResultManager

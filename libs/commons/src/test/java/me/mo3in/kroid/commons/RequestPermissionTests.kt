@@ -1,4 +1,4 @@
-package me.mo3in.kroid.commons.androidx
+package me.mo3in.kroid.commons
 
 import androidx.test.runner.AndroidJUnit4
 import io.reactivex.Single
@@ -36,7 +36,7 @@ class RequestPermissionTests {
 
 class RequestPermissionActivity : KActivity() {
 
-    fun getSinglePermission(): Single<Boolean> {
-        return requestPermissions(android.Manifest.permission.CALL_PHONE)
-    }
+//    fun getSinglePermission(): Single<Boolean> {
+//        return requestPermissions(android.Manifest.permission.CALL_PHONE)
+//    }
 }

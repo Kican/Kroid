@@ -1,5 +1,5 @@
 apply from: '../library.gradle'
-apply from: '../testSupport.gradle'
+apply from: '../test.gradle'
 
 dependencies {
     api project(':libs:http')
