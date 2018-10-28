@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import me.mo3in.kroid.material.R
-import java.lang.annotation.ElementType
-import java.lang.annotation.RetentionPolicy
 
 open class KRecyclerAdapter<TModel : Any> : RecyclerView.Adapter<KRecyclerAdapter.ItemViewHolder<TModel>> {
     protected var items: ArrayList<TModel> = ArrayList()
@@ -115,38 +113,6 @@ open class KRecyclerAdapter<TModel : Any> : RecyclerView.Adapter<KRecyclerAdapte
     }
 }
 
-data class FootBall(val id: Int)
-
-//@LayoutId(R.layout.test)
-class FootballViewHolder(itemView: View) : KRecyclerAdapter.ItemViewHolder<FootBall>(itemView) {
-    override fun bindItem(item: FootBall, pos: Int) {
-
-    }
-}
-
-//
-//class Test {
-//    init {
-//        KRecyclerAdapter<FootBall>(KRecyclerAdapter.AdapterItem(FootBall::class.java, FootballViewHolder::class.java))
-//    }
-//}
-
-class FootballAdapterItem : KRecyclerAdapter.AdapterItemHolder(FootBall::class.java, FootballViewHolder::class.java) {
-
-}
-
-class AirplaneHistoryAdapter : KRecyclerAdapter<FootBall>() {
-
-    init {
-        viewHolders.add(AdapterItem(R.layout.test, FootBall::class.java, ViewHolder::class.java))
-    }
-
-    class ViewHolder(itemView: View) : ItemViewHolder<FootBall>(itemView) {
-        override fun bindItem(item: FootBall, pos: Int) {
-
-        }
-    }
-}
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

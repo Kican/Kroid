@@ -6,8 +6,9 @@ import android.content.Intent
 import android.provider.MediaStore
 import androidx.test.runner.AndroidJUnit4
 import io.reactivex.Single
+import me.mo3in.kroid.commons.extensions.startActivityForResult
+import me.mo3in.kroid.commons.helpers.KActivity
 import me.mo3in.kroid.commons.helpers.activityresult.ActivityResult
-import me.mo3in.kroid.commons.helpers.startActivityForResult
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

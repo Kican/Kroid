@@ -2,8 +2,12 @@ package me.mo3in.kroid.commons.helpers.activityresult
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
 import io.reactivex.Single
 import io.reactivex.subjects.PublishSubject
+import me.mo3in.kroid.commons.helpers.KActivity
 import java.util.concurrent.atomic.AtomicInteger
 
 class ActivityResultManager {
@@ -28,19 +32,3 @@ class ActivityResultManager {
 //    }
 }
 
-class ActivityPermissionManager {
-    val permissionsRequests = PublishSubject.create<Pair<Int, RequestPermissionsResult>>()
-    private val seed = AtomicInteger(1)
-
-//    fun request(act: Activity, intent: Intent): Single<Boolean> {
-//        val requestId = seed.getAndIncrement()
-//
-//        act.startActivityForResult(intent, requestId)
-//
-//        return activityResult.filter { x -> x.first == requestId }.map { x -> x.second }.firstOrError()
-//    }
-}
-
-data class RequestPermissionsResult(val permissions: Array<Pair<String, Boolean>>) {
-    fun isAllGranted(): Boolean = permissions.all { x -> x.second }
-}

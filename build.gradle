@@ -4,12 +4,18 @@ buildscript {
     ext.kotlin_version = '1.3.0-rc-190'
 
     // kroid
-    ext.KROID_VERSION = '0.1.0'
+    ext.KROID_VERSION = '0.2.0'
     ext.KROID_VERSION_CODE = 2
 
     ext.COMPILE_SDK_VERSION = 28
     ext.MIN_SDK_VERSION = 16
     ext.TARGET_SDK_VERSION = 28
+
+    // tests
+    ext.ANDROIDX_TEST_VERSION = "1.1.0"
+    ext.ANDROIDX_ESPRESSO_TEST_VERSION = "3.1.0"
+    ext.ROBOLECTRIC_VERSION = "4.0"
+    ext.MOCKITO_VERSION = "2.23.0"
 
     // androidX
     ext.ANDROIDX_VERSION = "1.0.0"

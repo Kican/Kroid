@@ -7,7 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.Fragment
+import io.reactivex.Single
 import me.mo3in.kroid.commons.Utils
+import me.mo3in.kroid.commons.helpers.KActivity
+import me.mo3in.kroid.commons.helpers.activityresult.ActivityResult
 
 // start activity
 inline fun <reified T : Activity> Context.startActivity(vararg params: Pair<String, Any?>) =
@@ -23,6 +26,10 @@ inline fun <reified T : Activity> Activity.startActivityForResult(requestCode: I
 
 inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int, vararg params: Pair<String, Any?>) {
     startActivityForResult(Utils.createIntent(requireActivity(), T::class.java, params), requestCode)
+}
+
+fun KActivity.startActivityForResult(intent: Intent): Single<ActivityResult> {
+    return activityResultManager.start(this as Activity, intent)
 }
 
 // start service

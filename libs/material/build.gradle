@@ -1,5 +1,4 @@
 apply from: '../library.gradle'
-apply from: '../test.gradle'
 
 dependencies {
     // support

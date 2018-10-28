@@ -1,6 +1,6 @@
 package me.mo3in.kroid.auth
 
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import me.mo3in.kroid.auth.extensions.authBuild
 import me.mo3in.kroid.commons.extensions.defaultSharedPreferences
 import me.mo3in.kroid.commons.services.KServiceConfig

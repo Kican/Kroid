@@ -11,8 +11,11 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
-    testImplementation "org.robolectric:robolectric:4.0-beta-1"
-    testImplementation "org.mockito:mockito-core:2.23.0"
+    testImplementation "androidx.test:runner:$ANDROIDX_TEST_VERSION"
+    testImplementation "androidx.test:rules:$ANDROIDX_TEST_VERSION"
+    testImplementation "androidx.test.espresso:espresso-core:$ANDROIDX_ESPRESSO_TEST_VERSION"
+    testImplementation "org.robolectric:robolectric:$ROBOLECTRIC_VERSION"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
 }
 
 android {
