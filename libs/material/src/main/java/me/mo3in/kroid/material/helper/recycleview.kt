@@ -8,32 +8,48 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import me.mo3in.kroid.material.R
 
-open class KRecyclerAdapter<TModel : Any> : RecyclerView.Adapter<KRecyclerAdapter.ItemViewHolder<TModel>> {
+abstract class KRecyclerAdapter<TModel : Any> : RecyclerView.Adapter<KRecyclerAdapter.ItemViewHolder<TModel>>() {
     protected var items: ArrayList<TModel> = ArrayList()
-
 
     var onClick: ((view: View, position: Int, item: TModel) -> Unit)? = null
     var onLongClick: ((view: View, position: Int, item: TModel) -> Boolean)? = null
 
-    val viewHolders: ArrayList<AdapterItemHolder> = arrayListOf()
+    protected open fun handleClick(viewHolder: ItemViewHolder<TModel>, clickPosition: (ItemViewHolder<TModel>) -> Int) {
+        val itemView = viewHolder.itemView
 
-    constructor()
+        itemView.setOnClickListener {
+            val position = clickPosition(viewHolder)
+            onClick?.invoke(itemView, position, getItem(position))
+        }
 
-    constructor(viewHolder: AdapterItemHolder) : super() {
-        viewHolders.add(viewHolder)
+        onLongClick?.let {
+            val position = clickPosition(viewHolder)
+            itemView.setOnLongClickListener { it(itemView, position, getItem(position)) }
+        }
     }
 
-    constructor(_viewHolders: ArrayList<AdapterItemHolder>) : super() {
-        viewHolders.addAll(_viewHolders)
+    abstract val adapterItems: Array<AdapterItemHolder>
+
+
+    override fun getItemViewType(position: Int): Int = adapterItems.indexOfFirst { item -> item.isModel(items[position]) }
+
+    override fun onBindViewHolder(holder: ItemViewHolder<TModel>, position: Int) {
+        val item = items[position]
+        holder.bindItem(item, position)
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<TModel> {
+        val view = LayoutInflater.from(parent.context).inflate(adapterItems[viewType].layout, parent, false)
+        val viewHolder = adapterItems[viewType].viewHolder.getConstructor(View::class.java).newInstance(view)
+
+        handleClick(viewHolder as ItemViewHolder<TModel>, { it.layoutPosition })
+
+        return viewHolder
+    }
+
 
     fun addItem(item: TModel) {
         items.add(item)
-        notifyItemRangeInserted(itemCount - 1, 1)
-    }
-
-    fun addItem(index: Int, item: TModel) {
-        items.add(index, item)
         notifyItemRangeInserted(itemCount - 1, 1)
     }
 
@@ -62,58 +78,17 @@ open class KRecyclerAdapter<TModel : Any> : RecyclerView.Adapter<KRecyclerAdapte
         notifyItemRemoved(pos)
     }
 
-    private fun handleClick(viewHolder: ItemViewHolder<TModel>, clickPosition: (ItemViewHolder<TModel>) -> Int) {
-        val itemView = viewHolder.itemView
-
-        itemView.setOnClickListener {
-            val position = clickPosition(viewHolder)
-            onClick?.invoke(itemView, position, getItem(position))
-        }
-
-        onLongClick?.let { it ->
-            val position = clickPosition(viewHolder)
-            itemView.setOnLongClickListener { it(itemView, position, getItem(position)) }
-        }
-    }
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder<TModel> {
-        val view = viewHolders[viewType].getView(LayoutInflater.from(parent.context), parent)
-        val viewHolder = viewHolders[viewType].viewHolder.getConstructor(View::class.java).newInstance(view)
-
-        handleClick(viewHolder as ItemViewHolder<TModel>, { it.layoutPosition })
-
-        return viewHolder
-    }
-
-    override fun getItemCount(): Int = items.count()
-
-    override fun onBindViewHolder(holder: ItemViewHolder<TModel>, position: Int) {
-        val item = items[position]
-        holder.bindItem(item, position)
-    }
-
-    inner class AdapterItem<T : TModel, TViewModel : ItemViewHolder<T>>(@LayoutRes layout: Int, modelClass: Class<T>, viewHolder: Class<TViewModel>) : AdapterItemHolder(modelClass, viewHolder)
-
-
-    public open class AdapterItemHolder(val modelClass: Class<*>, val viewHolder: Class<*>) {
-        var layoutRes: Int = 0
-
-        open fun getView(layoutInflater: LayoutInflater, parent: ViewGroup): View {
-            return layoutInflater.inflate(layoutRes, parent, false)
-        }
-
-        fun <T> isModel(model: T): Boolean = modelClass.isInstance(model)
-    }
-
-
     abstract class ItemViewHolder<TModel : Any>(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val context: Context = itemView.context
         abstract fun bindItem(item: TModel, pos: Int)
     }
+
+    override fun getItemCount(): Int = items.count()
+
+    inner class AdapterItem<T : TModel, TViewModel : ItemViewHolder<T>>(@LayoutRes layout: Int, modelClass: Class<T>, viewHolder: Class<TViewModel>) : AdapterItemHolder(layout, modelClass, viewHolder)
+
+    open class AdapterItemHolder(val layout: Int, val modelClass: Class<*>, val viewHolder: Class<*>) {
+        fun <T> isModel(model: T): Boolean = modelClass.isInstance(model)
+    }
+
 }
-
-
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
-annotation class LayoutId(val value: Int)

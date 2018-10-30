@@ -32,11 +32,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    lintOptions {
-        abortOnError false
-    }
+//    lintOptions {
+//        abortOnError false
+//    }
     testOptions {
-        unitTests{
+        unitTests {
             returnDefaultValues = true
             includeAndroidResources = true
         }
