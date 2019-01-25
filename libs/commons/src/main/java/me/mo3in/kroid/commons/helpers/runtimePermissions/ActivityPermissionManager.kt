@@ -9,7 +9,7 @@ import io.reactivex.subjects.PublishSubject
 import me.mo3in.kroid.commons.helpers.KActivity
 
 class ActivityPermissionManager {
-    val permissionsRequests = PublishSubject.create<Pair<String, Boolean>>()
+    private val permissionsRequests = PublishSubject.create<Pair<String, Boolean>>()
 
     fun request(act: Activity, permission: String): Single<Boolean> {
 

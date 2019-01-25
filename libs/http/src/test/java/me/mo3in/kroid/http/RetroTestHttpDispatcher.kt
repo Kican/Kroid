@@ -18,6 +18,7 @@ class RetroTestHttpDispatcher : Dispatcher() {
             "/error400" -> {
                 val result = Result()
                 result.errors!![""] = arrayOf("field-is-required")
+                result.errors!!["user"] = arrayOf("is-duplicate", "not-exist")
                 MockResponse()
                         .setBody(result.errors!!.toJson())
                         .setResponseCode(400)

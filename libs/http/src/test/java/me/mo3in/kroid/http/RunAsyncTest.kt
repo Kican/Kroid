@@ -1,5 +1,6 @@
 package me.mo3in.kroid.http
 
+import me.mo3in.kroid.commons.extensions.toJson
 import me.mo3in.kroid.commons.models.Result
 import me.mo3in.kroid.commons.services.KServiceConfig
 import me.mo3in.kroid.http.extensions.runAsync
@@ -70,6 +71,7 @@ class RunAsyncTest {
         val resultRef = AtomicReference<Result>()
 
         HttpClient.build<TestApiService>().badRequest().runAsync { retroResult ->
+            System.out.println(retroResult.errors.toJson())
             if (retroResult.errorType == ResponseErrorType.BadRequestError) {
                 responseRef.set(true)
                 resultRef.set(retroResult)

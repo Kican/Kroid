@@ -1,24 +1,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.0'
+    ext.kotlin_version = '1.3.20'
 
     // kroid
-    ext.KROID_VERSION = '0.2.0'
-    ext.KROID_VERSION_CODE = 2
+    ext.KROID_VERSION = '0.3.0'
+    ext.KROID_VERSION_CODE = 4
 
     ext.COMPILE_SDK_VERSION = 28
     ext.MIN_SDK_VERSION = 16
     ext.TARGET_SDK_VERSION = 28
 
     // tests
-    ext.ANDROIDX_TEST_VERSION = "1.1.0"
+    ext.ANDROIDX_TEST_VERSION = "1.1.1"
     ext.ANDROIDX_ESPRESSO_TEST_VERSION = "3.1.0"
-    ext.ROBOLECTRIC_VERSION = "4.0"
+    ext.ROBOLECTRIC_VERSION = "4.1"
     ext.MOCKITO_VERSION = "2.23.0"
 
     // androidX
-    ext.ANDROIDX_VERSION = "1.0.0"
+    ext.ANDROIDX_VERSION = "1.0.2"
     ext.ANDROIDX_LIFECYCLE_VERSION = "2.0.0"
 
     // material components
@@ -27,17 +27,20 @@ buildscript {
     ext.CONSTRAINT_LAYOUT_ARTIFACT_VERSION = "1.1.3"
 
     // retrofit 2
-    ext.retrofit2_version = "2.4.0"
+    ext.retrofit2_version = "2.5.0"
 
     // okhttp mockwebserver
-    ext.okhttp_mockwebserver = "3.11.0"
+    ext.okhttp_mockwebserver = "3.12.0"
 
     // rxJava 2
-    ext.rxJava2_version = "2.2.2"
+    ext.rxJava2_version = "2.2.6"
     ext.rxAndroid_version = "2.1.0"
 
     // gson
     ext.gson_version = "2.8.5"
+
+    // notify
+    ext.notify_version = "1.2.0"
 
 
     ext.PROJECT_URL = 'https://github.com/mo3in/kroid'
@@ -61,7 +64,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     }
@@ -71,6 +74,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 

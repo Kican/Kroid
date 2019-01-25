@@ -1,0 +1,7 @@
+apply from: '../library.gradle'
+
+dependencies {
+    api project(':libs:commons')
+
+    api "io.karn:notify:$notify_version"
+}

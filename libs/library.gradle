@@ -119,12 +119,13 @@ publishing {
 
     repositories {
         maven { url "${rootProject.buildDir}/maven" }
+        maven { url 'https://jitpack.io' }
     }
 }
 
 bintray {
-    user = System.getenv('BINTRAY_USER') ?: ""
-    key = System.getenv('BINTRAY_API_KEY') ?: ""
+    user = System.getenv('BINTRAY_USER') ?: "mo3in"
+    key = System.getenv('BINTRAY_API_KEY') ?: "ce67e31689fc290cf95e0da3c4c8ec90aecdec72"
 
     publications = ['kroid']
 

@@ -62,7 +62,7 @@ class RetroResult<T>(val response: Response<T>? = null, throwable: Throwable?) :
         get() {
             if (response?.errorBody() != null) {
                 val errorBody = response.errorBody()!!.string()
-                if (errorBody.isNotEmpty())
+                if (errorBody.isNotEmpty() && errorType == ResponseErrorType.BadRequestError)
                     return Gson().fromJson<ResultErrors>(errorBody)
             }
             return ResultErrors()
@@ -71,9 +71,10 @@ class RetroResult<T>(val response: Response<T>? = null, throwable: Throwable?) :
 
     val message: String = if (response != null) response.message() else if (throwable!!.message != null) throwable.message!! else ""
 
-    fun showErrorAsToast(context: Context) {
-        var message = message
-        if (errorType == ResponseErrorType.BadRequestError && errors.size > 0)
+    fun showErrorAsToast(context: Context, showNetworkErrors: Boolean = false) {
+        var message = if (showNetworkErrors) message else ""
+
+        if (errors.size > 0)
             message = errors.toSeparateRows()
 
         context.toast(message)
